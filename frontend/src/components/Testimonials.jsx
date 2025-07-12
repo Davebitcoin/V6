@@ -86,10 +86,13 @@ const Testimonials = () => {
         {/* CTA */}
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-6">
-            Rejoignez nos clients satisfaits et découvrez l'expérience Elite VTC.
+            Rejoignez nos clients satisfaits et découvrez l'expérience Tesla VTC Nice.
           </p>
-          <button className="text-black font-medium hover:text-gray-700 transition-colors border-b border-black hover:border-gray-700 pb-1">
-            Voir plus de témoignages →
+          <button 
+            onClick={() => window.open('https://www.google.com/search?q=Tesla+VTC+Nice+avis', '_blank')}
+            className="text-black font-medium hover:text-gray-700 transition-colors border-b border-black hover:border-gray-700 pb-1"
+          >
+            Voir plus d'avis Google →
           </button>
         </div>
       </div>

@@ -8,7 +8,7 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Vehicles from "./components/Vehicles";
 import Pricing from "./components/Pricing";
-import Testimonials from "./components/Testimonials";
+import GoogleReviews from "./components/GoogleReviews";
 import Contact from "./components/Contact";
 import BookingForm from "./components/BookingForm";
 
@@ -38,7 +38,7 @@ function App() {
 
       {/* Vehicles Section */}
       <section id="vehicles">
-        <Vehicles />
+        <Vehicles onBookingClick={handleBookingClick} />
       </section>
 
       {/* Pricing Section */}
@@ -46,8 +46,8 @@ function App() {
         <Pricing onBookingClick={handleBookingClick} />
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
+      {/* Google Reviews Section */}
+      <GoogleReviews />
 
       {/* Contact Section */}
       <section id="contact">

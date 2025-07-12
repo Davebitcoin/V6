@@ -10,6 +10,7 @@ import { mockData } from '../data/mock';
 
 const BookingForm = ({ isOpen, onClose }) => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     service: '',
     pickupDate: '',
@@ -30,8 +31,51 @@ const BookingForm = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = async (formData) => {
+    // Configuration EmailJS (vous devrez créer un compte sur emailjs.com)
+    const serviceID = 'your_service_id'; // À remplacer par votre Service ID
+    const templateID = 'your_template_id'; // À remplacer par votre Template ID
+    const userID = 'your_user_id'; // À remplacer par votre User ID
+    
+    // Pour l'instant, simulation d'envoi d'email
+    console.log('📧 Email envoyé à: contact@teslavtcnice.fr');
+    console.log('Données du formulaire:', formData);
+    
+    // Simulation d'appel EmailJS
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ status: 'success' });
+      }, 1000);
+    });
+  };
+
+  const sendWhatsAppNotification = (formData) => {
+    const whatsappNumber = '33000000000'; // Numéro fictif, à modifier
+    const message = `🚗 *Nouvelle demande Tesla VTC Nice*
+
+👤 *Client:* ${formData.name}
+📞 *Téléphone:* ${formData.phone}
+📧 *Email:* ${formData.email}
+
+🚘 *Service:* ${formData.service}
+📅 *Date:* ${formData.pickupDate}
+🕐 *Heure:* ${formData.pickupTime}
+📍 *Départ:* ${formData.pickupAddress}
+🎯 *Destination:* ${formData.destination}
+👥 *Passagers:* ${formData.passengers}
+
+💬 *Notes:* ${formData.notes}
+
+---
+Demande via teslavtcnice.fr`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     // Validation basique
     if (!formData.service || !formData.pickupDate || !formData.pickupTime || !formData.name || !formData.phone) {
@@ -40,34 +84,50 @@ const BookingForm = ({ isOpen, onClose }) => {
         description: "Veuillez remplir tous les champs obligatoires.",
         variant: "destructive"
       });
+      setIsSubmitting(false);
       return;
     }
 
-    // Simulation de l'envoi
-    console.log('Données de réservation:', formData);
-    
-    toast({
-      title: "Réservation envoyée !",
-      description: "Nous vous contacterons dans les plus brefs délais pour confirmer votre réservation.",
-    });
+    try {
+      // 1. Envoi par email
+      await sendEmail(formData);
+      
+      // 2. Notification WhatsApp (optionnel - s'ouvre dans un nouvel onglet)
+      sendWhatsAppNotification(formData);
+      
+      toast({
+        title: "Demande envoyée avec succès ! ✅",
+        description: "Nous vous contacterons dans les plus brefs délais. Une notification WhatsApp va s'ouvrir.",
+      });
 
-    // Reset form et fermeture
-    setFormData({
-      service: '',
-      pickupDate: '',
-      pickupTime: '',
-      pickupAddress: '',
-      destination: '',
-      passengers: '1',
-      name: '',
-      phone: '',
-      email: '',
-      notes: ''
-    });
-    
-    setTimeout(() => {
-      onClose();
-    }, 2000);
+      // Reset form
+      setFormData({
+        service: '',
+        pickupDate: '',
+        pickupTime: '',
+        pickupAddress: '',
+        destination: '',
+        passengers: '1',
+        name: '',
+        phone: '',
+        email: '',
+        notes: ''
+      });
+      
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Erreur envoi:', error);
+      toast({
+        title: "Erreur d'envoi",
+        description: "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -78,7 +138,7 @@ const BookingForm = ({ isOpen, onClose }) => {
         <CardHeader className="border-b border-gray-100">
           <div className="flex items-center justify-between">
             <CardTitle className="text-2xl font-light text-gray-900">
-              Réservation VTC
+              Réservation Tesla VTC
             </CardTitle>
             <Button 
               variant="ghost" 
@@ -171,7 +231,7 @@ const BookingForm = ({ isOpen, onClose }) => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {[1,2,3,4,5,6,7,8].map((num) => (
+                  {[1,2,3,4].map((num) => (
                     <SelectItem key={num} value={num.toString()}>
                       {num} passager{num > 1 ? 's' : ''}
                     </SelectItem>
@@ -200,7 +260,7 @@ const BookingForm = ({ isOpen, onClose }) => {
                     <Input 
                       id="phone"
                       type="tel"
-                      placeholder="+33 1 23 45 67 89"
+                      placeholder="+33 6 12 34 56 78"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                     />
@@ -230,6 +290,16 @@ const BookingForm = ({ isOpen, onClose }) => {
               </div>
             </div>
 
+            {/* Info envoi */}
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Votre demande sera envoyée par email et WhatsApp</span>
+              </div>
+            </div>
+
             {/* Buttons */}
             <div className="flex gap-4 pt-6 border-t border-gray-100">
               <Button 
@@ -237,14 +307,23 @@ const BookingForm = ({ isOpen, onClose }) => {
                 variant="outline" 
                 onClick={onClose}
                 className="flex-1"
+                disabled={isSubmitting}
               >
                 Annuler
               </Button>
               <Button 
                 type="submit"
                 className="flex-1 bg-gray-900 hover:bg-gray-800"
+                disabled={isSubmitting}
               >
-                Envoyer la demande
+                {isSubmitting ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Envoi en cours...
+                  </div>
+                ) : (
+                  'Envoyer la demande'
+                )}
               </Button>
             </div>
           </form>

@@ -265,10 +265,229 @@ Le site s'adapte automatiquement à tous les écrans :
 
 ## 🌐 Déploiement
 
-Une fois personnalisé, vous pouvez déployer votre site sur :
-- Netlify (gratuit)
-- Vercel (gratuit)
-- GitHub Pages (gratuit)
+### 🚀 Déployer sur Netlify (GRATUIT)
+
+Netlify est la solution la plus simple pour mettre votre site VTC en ligne gratuitement.
+
+#### Étape 1 : Préparer votre projet
+
+1. **Récupérez votre code** via GitHub (voir section précédente)
+2. **Testez localement** que tout fonctionne :
+```bash
+cd frontend
+yarn install
+yarn start
+```
+
+#### Étape 2 : Créer un compte Netlify
+
+1. Allez sur [netlify.com](https://netlify.com)
+2. Cliquez sur **"Sign up"**
+3. Connectez-vous avec votre compte GitHub (recommandé)
+
+#### Étape 3 : Déployer votre site
+
+**Méthode A : Depuis GitHub (Recommandée)**
+
+1. Sur Netlify, cliquez **"New site from Git"**
+2. Choisissez **"GitHub"**
+3. Sélectionnez votre repository VTC
+4. **Configuration importante** :
+   - **Base directory** : `frontend`
+   - **Build command** : `yarn build`
+   - **Publish directory** : `frontend/build`
+5. Cliquez **"Deploy site"**
+
+**Méthode B : Glisser-Déposer**
+
+1. Sur votre ordinateur, buildez le projet :
+```bash
+cd frontend
+yarn build
+```
+2. Glissez le dossier `build` sur netlify.com
+3. Votre site est en ligne !
+
+#### Étape 4 : Votre site est en ligne ! 🎉
+
+Netlify vous donne une URL comme : `https://eloquent-curie-123456.netlify.app`
+
+### 🌍 Configurer votre nom de domaine
+
+#### Option 1 : Nom de domaine gratuit Netlify
+
+1. Dans votre dashboard Netlify, allez dans **"Site settings"**
+2. Cliquez **"Change site name"**
+3. Choisissez un nom : `mon-vtc-premium.netlify.app`
+4. **C'est gratuit et immédiat !**
+
+#### Option 2 : Acheter votre propre domaine
+
+**Où acheter un domaine :**
+- **OVH** (français) : 8-15€/an
+- **Namecheap** : 10-12€/an  
+- **GoDaddy** : 12-15€/an
+- **Gandi** (français) : 15-20€/an
+
+**Exemples de noms pour VTC :**
+- `votrenom-vtc.fr`
+- `elite-transport-paris.com`
+- `vtc-premium-75.fr`
+- `chauffeur-prive-paris.fr`
+
+#### Étape 5 : Connecter votre domaine à Netlify
+
+**Une fois votre domaine acheté :**
+
+1. **Dans Netlify** :
+   - Allez dans **"Domain settings"**
+   - Cliquez **"Add custom domain"**
+   - Entrez votre domaine : `votre-domaine.fr`
+
+2. **Chez votre registrar** (OVH, Namecheap, etc.) :
+   - Allez dans la gestion DNS
+   - Ajoutez ces enregistrements :
+
+```
+Type: A
+Nom: @
+Valeur: 75.2.60.5
+
+Type: CNAME  
+Nom: www
+Valeur: votre-site.netlify.app
+```
+
+3. **Attendez 24-48h** pour la propagation DNS
+
+#### Étape 6 : HTTPS automatique 🔒
+
+Netlify active automatiquement le HTTPS (cadenas vert) :
+- Gratuit
+- Certificat SSL automatique
+- Renouvellement automatique
+
+### 📧 Configuration email professionnel
+
+**Pour avoir contact@votre-domaine.fr :**
+
+**Option 1 : Gmail professionnel**
+- Google Workspace : 6€/mois
+- Interface Gmail familière
+- Synchronisation avec téléphone
+
+**Option 2 : OVH Email**
+- 1€/mois par adresse
+- Interface web simple
+- Support français
+
+**Option 3 : Redirection email**
+- Gratuit chez la plupart des registrars
+- Redirige vers votre email personnel
+- Plus simple mais moins professionnel
+
+### 🔧 Maintenance et mises à jour
+
+#### Modifier votre site en ligne
+
+1. **Modifiez le code** sur votre ordinateur
+2. **Committez sur GitHub** :
+```bash
+git add .
+git commit -m "Mise à jour tarifs"
+git push
+```
+3. **Netlify redéploie automatiquement** ! ✨
+
+#### Sauvegardes automatiques
+- Netlify garde l'historique de tous vos déploiements
+- Vous pouvez revenir en arrière en 1 clic
+- Vos données sont sécurisées
+
+### 📊 Analytics et suivi
+
+**Google Analytics (gratuit) :**
+
+1. Créez un compte sur [analytics.google.com](https://analytics.google.com)
+2. Ajoutez ce code dans `frontend/public/index.html` :
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'VOTRE_ID_TRACKING');
+</script>
+```
+
+**Vous pourrez voir :**
+- Nombre de visiteurs
+- Pages les plus visitées  
+- Provenance du trafic
+- Conversions (formulaires remplis)
+
+### 🎯 SEO - Être trouvé sur Google
+
+#### Meta tags essentiels
+
+Dans `frontend/public/index.html`, modifiez :
+
+```html
+<title>Elite VTC - Transport de Prestige Paris</title>
+<meta name="description" content="Service VTC premium à Paris. Réservez votre chauffeur privé 24h/24. Transferts aéroport, événements, transport business.">
+<meta name="keywords" content="VTC Paris, chauffeur privé, transport aéroport, taxi luxe">
+```
+
+#### Google My Business (gratuit)
+
+1. Créez votre fiche sur [business.google.com](https://business.google.com)
+2. Ajoutez photos, horaires, zone de service
+3. Récoltez des avis clients
+4. Apparaissez dans Google Maps
+
+### 💰 Coûts récapitulatifs
+
+**Gratuit :**
+- ✅ Hébergement Netlify
+- ✅ Certificat SSL
+- ✅ Sous-domaine netlify.app
+
+**Payant (optionnel) :**
+- 🌐 Nom de domaine : 10-15€/an
+- 📧 Email professionnel : 12-72€/an
+- 📊 Analytics : Gratuit (Google)
+
+**Total minimum : 10€/an pour être complètement professionnel !**
+
+### 🚨 Checklist avant mise en ligne
+
+- [ ] Toutes les informations personnalisées (nom, téléphone, email)
+- [ ] Photos de qualité pour les véhicules
+- [ ] Tarifs mis à jour
+- [ ] Témoignages réels ou supprimés
+- [ ] Coordonnées de contact correctes
+- [ ] Test sur mobile et desktop
+- [ ] Meta tags SEO configurés
+
+### 🆘 Résolution de problèmes
+
+**Site qui ne se charge pas :**
+- Vérifiez la configuration build dans Netlify
+- Assurez-vous que `frontend/build` existe
+
+**Domaine qui ne fonctionne pas :**
+- Attendez 24-48h pour la propagation DNS
+- Vérifiez les enregistrements DNS chez votre registrar
+
+**Emails non reçus depuis le formulaire :**
+- Le formulaire est actuellement en mode démo
+- Pour le rendre fonctionnel, contactez un développeur
+
+---
+
+**🎉 Votre site VTC professionnel sera en ligne en moins d'1 heure !**
 
 ---
 

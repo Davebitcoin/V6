@@ -65,31 +65,31 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-light mb-4">Elite VTC</h3>
+              <h3 className="text-2xl font-light mb-4">Tesla VTC Nice</h3>
               <p className="text-gray-400 leading-relaxed">
-                Votre partenaire de confiance pour tous vos déplacements professionnels et personnels.
+                Transport électrique premium sur la Côte d'Azur avec Tesla Model 3.
               </p>
             </div>
             <div>
               <h4 className="font-medium mb-4">Services</h4>
               <div className="space-y-2 text-gray-400">
-                <div>Transfert Aéroport</div>
-                <div>Transport Business</div>
-                <div>Événements & Mariages</div>
-                <div>Tours & Excursions</div>
+                <div>Transferts Aéroport</div>
+                <div>Transferts Gares</div>
+                <div>Mise à Disposition</div>
+                <div>Transferts Événements</div>
               </div>
             </div>
             <div>
               <h4 className="font-medium mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <div>+33 1 23 45 67 89</div>
-                <div>contact@elitevtc.fr</div>
-                <div>Paris et Île-de-France</div>
+                <div>+33 4 93 45 67 89</div>
+                <div>contact@teslavtcnice.fr</div>
+                <div>Nice et Côte d'Azur</div>
               </div>
             </div>
           </div>
           <div className="pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>© 2024 Elite VTC. Tous droits réservés.</p>
+            <p>© 2024 Tesla VTC Nice. Tous droits réservés.</p>
           </div>
         </div>
       </footer>

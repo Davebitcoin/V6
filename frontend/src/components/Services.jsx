@@ -63,7 +63,10 @@ const Services = () => {
           <p className="text-gray-600 mb-6">
             Besoin d'un service personnalisé ? Contactez-nous pour une solution sur-mesure.
           </p>
-          <button className="text-black font-medium hover:text-gray-700 transition-colors border-b border-black hover:border-gray-700 pb-1">
+          <button 
+            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+            className="text-black font-medium hover:text-gray-700 transition-colors border-b border-black hover:border-gray-700 pb-1"
+          >
             Demander un devis personnalisé →
           </button>
         </div>

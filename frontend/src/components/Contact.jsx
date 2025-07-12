@@ -161,17 +161,33 @@ const Contact = () => {
         <div className="text-center mt-16 pt-12 border-t border-white/20">
           <h4 className="text-lg font-medium mb-6">Suivez-nous</h4>
           <div className="flex justify-center space-x-6">
-            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <span className="text-xl">📘</span>
+            {/* Facebook */}
+            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors group">
+              <svg className="w-6 h-6 text-white group-hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <span className="text-xl">📷</span>
+            
+            {/* Instagram */}
+            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors group">
+              <svg className="w-6 h-6 text-white group-hover:text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C8.396 0 7.933.016 6.706.071 5.481.126 4.65.389 3.927.735 3.175 1.098 2.543 1.587 1.912 2.218.281 3.85.016 5.481.071 6.706.016 7.933 0 8.396 0 12.017c0 3.624.016 4.086.071 5.314.055 1.226.318 2.057.664 2.78.365.752.854 1.384 1.486 2.015.63.63 1.263 1.12 2.015 1.486.723.346 1.554.609 2.78.664 1.227.055 1.69.071 5.314.071 3.624 0 4.086-.016 5.314-.071 1.226-.055 2.057-.318 2.78-.664.752-.366 1.384-.855 2.015-1.486.63-.631 1.12-1.263 1.486-2.015.346-.723.609-1.554.664-2.78.055-1.228.071-1.69.071-5.314 0-3.621-.016-4.084-.071-5.31-.055-1.226-.318-2.057-.664-2.78-.365-.752-.854-1.384-1.486-2.015C16.896.281 16.264-.208 15.512-.574 14.789-.92 13.958-1.183 12.732-1.238 11.505-1.293 11.042-1.309 7.421-1.309l4.596 1.309zm0 1.621c3.563 0 3.993.016 5.4.071 1.3.059 2.006.273 2.476.456.622.242 1.066.532 1.533.999.466.466.756.91.999 1.533.183.47.397 1.176.456 2.476.055 1.408.071 1.837.071 5.4s-.016 3.993-.071 5.4c-.059 1.3-.273 2.006-.456 2.476-.242.622-.532 1.066-.999 1.533-.466.466-.91.756-1.533.999-.47.183-1.176.397-2.476.456-1.408.055-1.837.071-5.4.071s-3.993-.016-5.4-.071c-1.3-.059-2.006-.273-2.476-.456-.622-.242-1.066-.532-1.533-.999-.466-.466-.756-.91-.999-1.533-.183-.47-.397-1.176-.456-2.476-.055-1.408-.071-1.837-.071-5.4s.016-3.993.071-5.4c.059-1.3.273-2.006.456-2.476.242-.622.532-1.066.999-1.533.466-.466.91-.756 1.533-.999.47-.183 1.176-.397 2.476-.456 1.408-.055 1.837-.071 5.4-.071z"/>
+                <path d="M12.017 15.33a3.314 3.314 0 1 1 0-6.628 3.314 3.314 0 0 1 0 6.628zM12.017 7.052a4.98 4.98 0 1 0 0 9.96 4.98 4.98 0 0 0 0-9.96zM18.685 6.756a1.164 1.164 0 1 1-2.328 0 1.164 1.164 0 0 1 2.328 0z"/>
+              </svg>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <span className="text-xl">🐦</span>
+            
+            {/* Twitter/X */}
+            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors group">
+              <svg className="w-5 h-5 text-white group-hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
             </a>
-            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <span className="text-xl">💼</span>
+            
+            {/* LinkedIn */}
+            <a href="#" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors group">
+              <svg className="w-6 h-6 text-white group-hover:text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
             </a>
           </div>
         </div>

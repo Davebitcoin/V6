@@ -106,6 +106,7 @@ const Pricing = ({ onBookingClick }) => {
             contactez-nous pour un devis adapté à vos besoins.
           </p>
           <Button 
+            onClick={onBookingClick}
             variant="outline"
             className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-3"
           >
